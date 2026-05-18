@@ -5,5 +5,5 @@ class Nodo:
         self.right = None
         self.inicio = inicio
         self.fin = fin
-        self.color = 'negro'
+        self.color = 'rojo'
     
