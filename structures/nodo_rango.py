@@ -6,4 +6,4 @@ class Nodo:
         self.inicio = inicio
         self.fin = fin
         self.color = 'rojo'
-    
+        self.padre = None
