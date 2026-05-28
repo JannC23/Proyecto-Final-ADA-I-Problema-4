@@ -1,4 +1,4 @@
-from nodo_rango import Nodo
+from structures.nodo_rango import Nodo
 
 class Arbol:
     def __init__(self):
@@ -30,7 +30,7 @@ class Arbol:
         while nodo != self.raiz and nodo.padre.color == 'rojo':
             if nodo.padre == nodo.padre.padre.left:
                 tio = nodo.padre.padre.right
-                if tio.color == 'rojo':
+                if tio is not None and tio.color == 'rojo':
                     tio.color = 'negro'
                     nodo.padre.padre.color = 'rojo'
                     nodo.padre.color = 'negro'
@@ -51,7 +51,7 @@ class Arbol:
                         nodo = nodo.padre
             else:
                 tio = nodo.padre.padre.left
-                if tio.color == 'rojo':
+                if tio is not None and tio.color == 'rojo':
                     tio.color = 'negro'
                     nodo.padre.padre.color = 'rojo'
                     nodo.padre.color = 'negro'
