@@ -23,12 +23,19 @@ class MotorConsultas:
         self.arbol.insertar(nodo)
 
     def value(self, posicion):
-        rangos = self.obtener_rangos()
+        return self._value_aux(self.arbol.raiz, posicion)
 
-        for nodo in rangos:
-            if nodo.inicio <= posicion <= nodo.fin:
-                return nodo.valor
-        return None
+    def _value_aux(self, nodo, posicion):
+        if nodo is None:
+            return None
+        
+        if nodo.inicio <= posicion <= nodo.fin:
+            return nodo.valor
+
+        if posicion < nodo.inicio:
+            return self._value_aux(nodo.left, posicion)
+        
+        return self._value_aux(nodo.right, posicion)
 
     def suma(self, inicio, fin):
         total = 0
